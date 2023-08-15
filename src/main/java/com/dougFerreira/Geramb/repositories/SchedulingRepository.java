@@ -17,5 +17,9 @@ public interface SchedulingRepository extends JpaRepository<Scheduling, Long> {
 
 	List<Scheduling> findAllByAmbient_id(Long id);
 
+	List<Scheduling> findAllByDateBetween(LocalDate initialDate, LocalDate finalDate);
+
+	List<Scheduling> findAllByStudantClass_id(Long studantClass_id);
+
 
 }

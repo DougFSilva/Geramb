@@ -31,7 +31,15 @@ public class FindScheduling {
 		return repository.findAllByDate(date);
 	}
 	
+	public List<Scheduling> findByDate(LocalDate initialDate, LocalDate finalDate){
+		return repository.findAllByDateBetween(initialDate, finalDate);
+	}
+	
 	public List<Scheduling> findByAmbient(Long id) {
 		return repository.findAllByAmbient_id(id);
+	}
+	
+	public List<Scheduling> findByStudentClass(Long studantClass_id) {
+		return repository.findAllByStudantClass_id(studantClass_id);
 	}
 }

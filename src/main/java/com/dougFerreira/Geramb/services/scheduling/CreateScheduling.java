@@ -31,7 +31,7 @@ public class CreateScheduling {
 	private FindScheduling findScheduling;
 	
 	public Scheduling create(LocalDate date, Long ambient_id, Period period, Long studantClass_id) {
-		Optional<Scheduling> existingScheduling = findScheduling.findExistingScheduling(date, ambient_id, period);
+		Optional<Scheduling> existingScheduling = findScheduling.findExisting(date, ambient_id, period);
 		if(existingScheduling.isPresent()) {
 			throw new OperationNotAllowedException("Agendamento existente!");
 		}
