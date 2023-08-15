@@ -15,6 +15,7 @@ public class UpdateImageItem {
 	@Autowired
 	private ItemRepository repository;
 	
+	// reformular classe
 	public void update(Long id, String image) {
 		Item item = findItem.findById(id);
 		item.setImage(image);
