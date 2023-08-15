@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dougFerreira.Geramb.models.Period;
 import com.dougFerreira.Geramb.models.Scheduling;
 import com.dougFerreira.Geramb.repositories.SchedulingRepository;
 
@@ -23,6 +24,10 @@ public class DeleteScheduling {
 	}
 	
 	public void deletByDate(LocalDate date) {
+		
+	}
+	
+	public void deleteByPeriod(Period period) {
 		
 	}
 	
