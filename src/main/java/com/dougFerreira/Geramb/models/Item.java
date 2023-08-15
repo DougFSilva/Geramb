@@ -5,8 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,28 +15,21 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(of = {"id", "name", "description"})
+@ToString
+@EqualsAndHashCode(of = "id")
 @Entity
-public class Ambient {
+public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Cabinet cabinet;
+	
 	private String name;
 	
-	private String localization;
+	private Integer quantity;
 	
-	private String description;
-	
-	@OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
-	private User responsible;
-	
-	public Ambient(String name, String localization, String description) {
-		this.name = name;
-		this.localization = localization;
-		this.description = description;
-	}
-	
-		
+	private String image;
 }

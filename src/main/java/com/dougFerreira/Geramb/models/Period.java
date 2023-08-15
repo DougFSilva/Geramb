@@ -1,6 +1,6 @@
 package com.dougFerreira.Geramb.models;
 
-public class Person {
+public enum Period {
 
-	private Long id;
+	MANHA, TARDE, NOITE
 }
