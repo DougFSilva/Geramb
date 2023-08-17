@@ -23,11 +23,11 @@ public class FindItem {
 		return repository.findAllByNameContaining(name);
 	}
 	
-	public List<Item> findByCabinet(Long id) {
+	public List<Item> findAllByCabinet(Long id) {
 		return repository.findAllByCabinetId(id);
 	}
 	
-	public List<Item> findByAll() {
+	public List<Item> findAll() {
 		return repository.findAll();
 	}
 }

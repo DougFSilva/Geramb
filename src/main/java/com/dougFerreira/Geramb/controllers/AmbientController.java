@@ -77,7 +77,7 @@ public class AmbientController {
 	}
 	
 	@GetMapping("/{name}")
-	public ResponseEntity<List<AmbientDto>> findAmbientByNameContaining(@PathVariable String name){
+	public ResponseEntity<List<AmbientDto>> findAmbientsByNameContaining(@PathVariable String name){
 		List<Ambient> ambients = findAmbient.findByNameContaining(name);
 		List<AmbientDto> ambinetsDto = ambients.stream().map(ambient -> new AmbientDto(ambient)).toList();
 		return ResponseEntity.ok().body(ambinetsDto);

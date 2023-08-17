@@ -57,13 +57,13 @@ public class CabinetController {
 	@PutMapping("/{id}")
 	public ResponseEntity<CabinetDto> updateCabinet(@RequestBody @Valid CabinetForm form, @PathVariable Long id) {
 		Cabinet cabinet = updateCabinet.update(id, form.ambient_id(), form.name(), form.localization(), form.description());
-		return ResponseEntity.ok(new CabinetDto(cabinet));
+		return ResponseEntity.ok().body(new CabinetDto(cabinet));
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<CabinetDto> findCabinetById(@PathVariable Long id){
 		Cabinet cabinet = findCabinet.findById(id);
-		return ResponseEntity.ok(new CabinetDto(cabinet));
+		return ResponseEntity.ok().body(new CabinetDto(cabinet));
 	}
 	
 	@GetMapping("/name/{name}")
@@ -72,17 +72,15 @@ public class CabinetController {
 				.stream()
 				.map(cabinet -> new CabinetDto(cabinet))
 				.toList();;
-		return ResponseEntity.ok(cabinets);
+		return ResponseEntity.ok().body(cabinets);
 	}
 	
 	@GetMapping("/ambient/{ambient_id}")
 	public ResponseEntity<List<CabinetDto>> findAllCabinetsByAmbient(@PathVariable Long ambient_id){
-		List<Cabinet> cabinets = findCabinet.findAllByAmbient(ambient_id);
-		List<CabinetDto> cabinetsDto = cabinets
-				.stream()
+		List<CabinetDto> cabinets  = findCabinet.findAllByAmbient(ambient_id).stream()
 				.map(cabinet -> new CabinetDto(cabinet))
-				.toList();
-		return ResponseEntity.ok(cabinetsDto);
+				.toList();;
+		return ResponseEntity.ok().body(cabinets);
 	}
 	
 	@GetMapping
@@ -91,7 +89,7 @@ public class CabinetController {
 				.stream()
 				.map(cabinet -> new CabinetDto(cabinet))
 				.toList();
-		return ResponseEntity.ok(cabinets);
+		return ResponseEntity.ok().body(cabinets);
 	}
 	
 }
