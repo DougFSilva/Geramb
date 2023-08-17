@@ -8,8 +8,8 @@ import com.dougFerreira.Geramb.models.PasswordEncoder;
 @Configuration
 public class BeanConfiguration {
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
+    @Bean
+    PasswordEncoder passwordEncoder() {
 		return new BcryptEncoder();
 	}
 }
